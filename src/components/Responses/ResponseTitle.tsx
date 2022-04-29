@@ -16,7 +16,6 @@ export interface ResponseTitleProps {
 
 function ResponseTitleComponent({
   title,
-  type,
   empty,
   code,
   opened,
@@ -33,9 +32,9 @@ function ResponseTitleComponent({
       {!empty && (
         <ShelfIcon
           size={'1.5em'}
-          color={type}
-          direction={opened ? 'down' : 'right'}
-          float={'left'}
+          color={'#22174A'}
+          direction={opened ? 'up' : 'down'}
+          float={'right'}
         />
       )}
       <Code>{code} </Code>

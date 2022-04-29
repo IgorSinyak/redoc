@@ -13,8 +13,9 @@ export const ApiHeader = styled(H1)`
 `;
 
 export const DownloadButton = styled.a`
-  border: 1px solid ${props => props.theme.colors.primary.main};
-  color: ${props => props.theme.colors.primary.main};
+  border: 1px solid ${props => props.theme.typography.links.color};
+  border-radius: 6px;
+  color: ${props => props.theme.typography.links.color};
   font-weight: normal;
   margin-left: 0.5em;
   padding: 4px 8px 4px;

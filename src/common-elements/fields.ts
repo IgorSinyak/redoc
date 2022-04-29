@@ -50,9 +50,9 @@ export const TypeFormat = TypeName;
 
 export const RequiredLabel = styled(FieldLabel.withComponent('div'))`
   color: ${props => props.theme.schema.requireLabelColor};
-  font-size: ${props => props.theme.schema.labelsTextSize};
+  font-size: 12px;
   font-weight: normal;
-  margin-left: 20px;
+  margin-left: 27px;
   line-height: 1;
 `;
 

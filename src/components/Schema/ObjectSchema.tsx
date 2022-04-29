@@ -51,10 +51,11 @@ export const ObjectSchema = observer(
       <PropertiesTable>
         {showTitle && <PropertiesTableCaption>{title}</PropertiesTableCaption>}
         <tbody>
-          {mapWithLast(filteredFields, (field, isLast) => {
+          {mapWithLast(filteredFields, (field, isLast, isFirst) => {
             return (
               <Field
                 key={field.name}
+                isFirst={isFirst}
                 isLast={isLast}
                 field={field}
                 expandByDefault={expandByDefault}

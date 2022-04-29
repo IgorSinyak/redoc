@@ -29,9 +29,9 @@ class Json extends React.PureComponent<JsonProps> {
   renderInner = ({ renderCopyButton }) => (
     <JsonViewerWrap>
       <SampleControls>
+        <button onClick={this.expandAll}> Expand </button>
+        <button onClick={this.collapseAll}> Collapse </button>
         {renderCopyButton()}
-        <button onClick={this.expandAll}> Expand all </button>
-        <button onClick={this.collapseAll}> Collapse all </button>
       </SampleControls>
       <OptionsContext.Consumer>
         {options => (

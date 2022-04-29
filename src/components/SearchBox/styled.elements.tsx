@@ -1,11 +1,13 @@
 import * as React from 'react';
 
-import { darken, getLuminance, lighten } from 'polished';
+import { darken } from 'polished';
 import styled from '../../styled-components';
 import { MenuItemLabel } from '../SideMenu/styled.elements';
 
 export const SearchWrap = styled.div`
   padding: 5px 0;
+  margin: 25px 0;
+  position: relative;
 `;
 
 export const SearchInput = styled.input.attrs(() => ({
@@ -14,20 +16,15 @@ export const SearchInput = styled.input.attrs(() => ({
   width: calc(100% - ${props => props.theme.spacing.unit * 8}px);
   box-sizing: border-box;
   margin: 0 ${props => props.theme.spacing.unit * 4}px;
-  padding: 5px ${props => props.theme.spacing.unit * 2}px 5px
-    ${props => props.theme.spacing.unit * 4}px;
-  border: 0;
-  border-bottom: 1px solid
-    ${({ theme }) =>
-      (getLuminance(theme.sidebar.backgroundColor) > 0.5 ? darken : lighten)(
-        0.1,
-        theme.sidebar.backgroundColor,
-      )};
+  padding: 14px 12px;
+  background: #FFFFFF;
+  border: 1px solid #D7DBDF;
+  box-shadow: 0px 1px 0px rgba(17, 24, 28, 0.08);
+  border-radius: 6px;
   font-family: ${({ theme }) => theme.typography.fontFamily};
   font-weight: bold;
   font-size: 13px;
   color: ${props => props.theme.sidebar.textColor};
-  background-color: transparent;
   outline: none;
 `;
 
@@ -46,9 +43,10 @@ export const SearchIcon = styled((props: { className?: string }) => (
   className: 'search-icon',
 })`
   position: absolute;
-  left: ${props => props.theme.spacing.unit * 4}px;
-  height: 1.8em;
-  width: 0.9em;
+  right: 35px;
+  height: 18px;
+  top: calc(50% - 9px);
+  width: 18px;
 
   path {
     fill: ${props => props.theme.sidebar.textColor};

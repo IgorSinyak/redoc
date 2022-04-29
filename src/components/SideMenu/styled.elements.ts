@@ -23,7 +23,7 @@ export const OperationBadge = styled.span.attrs((props: { type: string }) => ({
   font-weight: bold;
   vertical-align: middle;
   margin-right: 6px;
-  margin-top: 2px;
+  margin-top: 5px;
 
   &.get {
     background-color: ${props => props.theme.colors.http.get};
@@ -122,26 +122,26 @@ export const MenuItemLabel = styled.label.attrs((props: MenuItemLabelType) => ({
   className: classnames('-depth' + props.depth, {
     active: props.active,
   }),
-}))<MenuItemLabelType>`
+})) <MenuItemLabelType>`
   cursor: pointer;
   color: ${props =>
     props.active ? menuItemActive(props.depth, props, 'activeTextColor') : props.theme.sidebar.textColor};
   margin: 0;
-  padding: 12.5px ${props => props.theme.spacing.unit * 4}px;
+  padding: 15px ${props => props.theme.spacing.unit * 4}px;
   ${({ depth, type, theme }) =>
     (type === 'section' && depth > 1 && 'padding-left: ' + theme.spacing.unit * 8 + 'px;') || ''}
   display: flex;
   justify-content: space-between;
   font-family: ${props => props.theme.typography.headings.fontFamily};
   ${props => menuItemDepth[props.depth]};
-  background-color: ${props =>
-    props.active ? menuItemActive(props.depth, props, 'activeBackgroundColor') : props.theme.sidebar.backgroundColor};
+  font-size: 16px;
+  font-weight: 500;
+  background-color: ${props => props.theme.sidebar.backgroundColor};
 
   ${props => (props.deprecated && deprecatedCss) || ''};
 
   &:hover {
     color: ${props => menuItemActive(props.depth, props, 'activeTextColor')};
-    background-color: ${props => menuItemActive(props.depth, props, 'activeBackgroundColor')};
   }
 
   ${ShelfIcon} {

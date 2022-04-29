@@ -22,11 +22,11 @@ export class ParametersGroup extends React.PureComponent<ParametersGroupProps, a
 
     return (
       <div key={place}>
-        <UnderlinedHeader>{place} Parameters</UnderlinedHeader>
+        <UnderlinedHeader>{place} Parameters:</UnderlinedHeader>
         <PropertiesTable>
           <tbody>
-            {mapWithLast(parameters, (field, isLast) => (
-              <Field key={field.name} isLast={isLast} field={field} showExamples={true} />
+            {mapWithLast(parameters, (field, isLast, isFirst) => (
+              <Field key={field.name} isLast={isLast} isFirst={isFirst} field={field} showExamples={true} />
             ))}
           </tbody>
         </PropertiesTable>

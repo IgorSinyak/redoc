@@ -1,8 +1,15 @@
 import * as React from 'react';
+// import styled from '../styled-components';
 import { Tooltip } from '../common-elements/Tooltip';
 
 import { ClipboardService } from '../services/ClipboardService';
 
+
+/* const CopyButton = styled.button`
+  background: #FF5913;
+  border-radius: 4px;
+  color: #fff;
+`; */
 export interface CopyButtonWrapperProps {
   data: any;
   children: (props: { renderCopyButton: () => React.ReactNode }) => React.ReactNode;
@@ -34,7 +41,7 @@ export class CopyButtonWrapper extends React.PureComponent<
 
   renderCopyButton = () => {
     return (
-      <button onClick={this.copy}>
+      <button className="copy-button" onClick={this.copy}>
         <Tooltip
           title={ClipboardService.isSupported() ? 'Copied' : 'Not supported in your browser'}
           open={this.state.tooltipShown}

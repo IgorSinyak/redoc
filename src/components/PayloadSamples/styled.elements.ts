@@ -3,13 +3,15 @@ import styled from '../../styled-components';
 import { StyledDropdown } from '../../common-elements';
 
 export const MimeLabel = styled.div`
-  padding: 0.9em;
-  background-color: ${({ theme }) => transparentize(0.6, theme.rightPanel.backgroundColor)};
+  padding: 12px 220px 12px 16px;
   margin: 0 0 10px 0;
   display: block;
   font-family: ${({ theme }) => theme.typography.headings.fontFamily};
-  font-size: 0.929em;
+  font-size: 14px;
   line-height: 1.5em;
+  color: #fff;
+  font-weight: 600;
+  word-break: break-word;
 `;
 
 export const DropdownLabel = styled.span`
@@ -25,6 +27,9 @@ export const DropdownLabel = styled.span`
 
 export const DropdownWrapper = styled.div`
   position: relative;
+  background: #3E2593;
+  margin: -20px -20px 0;
+  border-radius: 6px 6px 0 0;
 `;
 
 export const InvertedSimpleDropdown = styled(StyledDropdown)`

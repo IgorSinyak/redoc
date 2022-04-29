@@ -128,8 +128,9 @@ export const StyledMarkdownBlock = styled(
   }
 
   table {
-    display: block;
-    width: 100%;
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
     overflow: auto;
     word-break: normal;
     word-break: keep-all;
@@ -137,21 +138,37 @@ export const StyledMarkdownBlock = styled(
     border-spacing: 0;
     margin-top: 1.5em;
     margin-bottom: 1.5em;
+    border: 1px solid #D6D7D8;
+    border-radius: 4px;
+  }
+
+  table thead tr {
+    background: #F3F4F5;
+    border-top: 0;
   }
 
   table tr {
     background-color: #fff;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #D6D7D8;
+  }
 
-    &:nth-child(2n) {
-      background-color: ${({ theme }) => theme.schema.nestedBackground};
-    }
+  table tr:first-child {
+    border-top: 0;
+  }
+
+  table thead + tbody tr:first-child {
+    border-top: 1px solid #D6D7D8;
   }
 
   table th,
   table td {
     padding: 6px 13px;
-    border: 1px solid #ddd;
+    border-right: 1px solid #D6D7D8;
+  }
+
+  table th:last-child,
+  table td:last-child {
+    border-right: 0;
   }
 
   table th {

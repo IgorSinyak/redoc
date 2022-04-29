@@ -50,6 +50,7 @@ export const PrismDiv = styled.div`
 
   .token.punctuation {
     opacity: 0.7;
+    color: #A0FBAA;
   }
 
   .namespace {
@@ -83,7 +84,7 @@ export const PrismDiv = styled.div`
   }
 
   .token.property.string {
-    color: white;
+    color: #A0FBAA
   }
 
   .token.operator,

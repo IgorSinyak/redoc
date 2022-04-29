@@ -1,14 +1,20 @@
 import styled, { css, extensionsHook } from '../styled-components';
 
 const headerFontSize = {
-  1: '1.85714em',
-  2: '1.57143em',
+  1: '24px',
+  2: '20px',
   3: '1.27em',
 };
 
+const headerFontWeight = {
+  1: '600',
+  2: '500',
+  3: '500'
+}
+
 export const headerCommonMixin = level => css`
   font-family: ${({ theme }) => theme.typography.headings.fontFamily};
-  font-weight: ${({ theme }) => theme.typography.headings.fontWeight};
+  font-weight: ${headerFontWeight[level]};
   font-size: ${headerFontSize[level]};
   line-height: ${({ theme }) => theme.typography.headings.lineHeight};
 `;
@@ -39,16 +45,31 @@ export const RightPanelHeader = styled.h3`
   color: ${({ theme }) => theme.rightPanel.textColor};
 
   ${extensionsHook('RightPanelHeader')};
+
+  font-size: 14px;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
 `;
 
 export const UnderlinedHeader = styled.h5`
-  border-bottom: 1px solid rgba(38, 50, 56, 0.3);
   margin: 1em 0 1em 0;
-  color: rgba(38, 50, 56, 0.5);
-  font-weight: normal;
+  color: #A5A6A8;
+  font-weight: 500;
   text-transform: uppercase;
-  font-size: 0.929em;
+  font-size: 14px;
   line-height: 20px;
+  display: flex;
+  align-items: center;
+
+  &:after {
+    content: '';
+    display: block;
+    flex: 1;
+    height: 1px;
+    background: #D7DBDF;
+    margin: 0 8px;
+  }
 
   ${extensionsHook('UnderlinedHeader')};
 `;

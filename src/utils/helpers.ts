@@ -4,14 +4,22 @@ import { format, parse } from 'url';
 /**
  * Maps over array passing `isLast` bool to iterator as the second argument
  */
-export function mapWithLast<T, P>(array: T[], iteratee: (item: T, isLast: boolean) => P) {
+export function mapWithLast<T, P>(array: T[], iteratee: (item: T, isLast: boolean, isFirst?: boolean) => P) {
   const res: P[] = [];
-  for (let i = 0; i < array.length - 1; i++) {
+  if (array.length === 0) {
+    return res;
+  }
+  if (array.length === 1) {
+    res.push(iteratee(array[0], true, true));
+    return res;
+  }
+
+  res.push(iteratee(array[0], false, true));
+  for (let i = 1; i < array.length - 1; i++) {
     res.push(iteratee(array[i], false));
   }
-  if (array.length !== 0) {
-    res.push(iteratee(array[array.length - 1], true));
-  }
+  res.push(iteratee(array[array.length - 1], true));
+
   return res;
 }
 

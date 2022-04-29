@@ -13,55 +13,59 @@ export const Tabs = styled(ReactTabs)`
     margin: 0 -5px;
 
     > li {
-      padding: 5px 10px;
+      padding: 9px 10px;
       display: inline-block;
 
-      background-color: ${({ theme }) => theme.codeBlock.backgroundColor};
-      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
       cursor: pointer;
       text-align: center;
       outline: none;
-      color: ${({ theme }) => darken(theme.colors.tonalOffset, theme.rightPanel.textColor)};
+      color: ${props => props.theme.colors.text.primary};
       margin: 0
-        ${({ theme }) => `${theme.spacing.unit}px ${theme.spacing.unit}px ${theme.spacing.unit}px`};
-      border: 1px solid ${({ theme }) => darken(0.05, theme.codeBlock.backgroundColor)};
+        ${({ theme }) => `${theme.spacing.unit}px 16px ${theme.spacing.unit}px`};
+      background: #fff;
+      border: 1px solid #D7DBDF;
       border-radius: 5px;
-      min-width: 60px;
       font-size: 0.9em;
-      font-weight: bold;
+      font-weight: 500;
+      min-width: 60px;
 
       &.react-tabs__tab--selected {
         color: ${props => props.theme.colors.text.primary};
-        background: ${({ theme }) => theme.rightPanel.textColor};
+        background: #fff;
+        border: 1px solid #D7DBDF;
         &:focus {
+          color: ${props => props.theme.typography.links.color};
+          border-color: ${props => props.theme.typography.links.color};
           outline: auto;
         }
       }
 
       &:only-child {
         flex: none;
-        min-width: 100px;
       }
 
       &.tab-success {
-        color: ${props => props.theme.colors.responses.success.tabTextColor};
+        color: ${props => props.theme.colors.text.primary};
       }
 
       &.tab-redirect {
-        color: ${props => props.theme.colors.responses.redirect.tabTextColor};
+        color: ${props => props.theme.colors.text.primary};
       }
 
       &.tab-info {
-        color: ${props => props.theme.colors.responses.info.tabTextColor};
+        color: ${props => props.theme.colors.text.primary};
       }
 
       &.tab-error {
-        color: ${props => props.theme.colors.responses.error.tabTextColor};
+        color: ${props => props.theme.colors.text.primary};
       }
     }
   }
   > .react-tabs__tab-panel {
-    background: ${({ theme }) => theme.codeBlock.backgroundColor};
+    background: #17161B;
+    border-radius: 6px;
+    position: relative;
+
     & > div,
     & > pre {
       padding: ${props => props.theme.spacing.unit * 4}px;

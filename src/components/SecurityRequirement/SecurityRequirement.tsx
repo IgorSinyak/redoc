@@ -115,6 +115,10 @@ const SecuritiesColumn = styled.div`
 const AuthHeader = styled(UnderlinedHeader)`
   display: inline-block;
   margin: 0;
+
+  &:after {
+    display: none;
+  }
 `;
 
 const Wrap = styled.div`

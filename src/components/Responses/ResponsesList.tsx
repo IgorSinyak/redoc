@@ -3,6 +3,7 @@ import { l } from '../../services/Labels';
 import { ResponseModel } from '../../services/models';
 import styled from '../../styled-components';
 import { ResponseView } from './Response';
+import { ResponseWrap } from './styled.elements';
 
 const ResponsesHeader = styled.h3`
   font-size: 1.3em;
@@ -26,12 +27,12 @@ export class ResponsesList extends React.PureComponent<ResponseListProps> {
     }
 
     return (
-      <div>
+      <ResponseWrap>
         <ResponsesHeader>{isCallback ? l('callbackResponses') : l('responses')}</ResponsesHeader>
         {responses.map(response => {
           return <ResponseView key={response.code} response={response} />;
         })}
-      </div>
+      </ResponseWrap>
     );
   }
 }

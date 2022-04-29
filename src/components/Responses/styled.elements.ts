@@ -29,6 +29,9 @@ cursor: default;
   text-align: center;
   display: inline-block;
   vertical-align: top;
+  position: absolute;
+  right: 10px;
+  color: ${props.theme.colors.text.primary}
 }
 &:focus {
   outline: 0;
@@ -49,4 +52,8 @@ export const HeadersCaption = styled(UnderlinedHeader.withComponent('caption'))`
 
 export const Code = styled.strong`
   vertical-align: top;
+`;
+
+export const ResponseWrap = styled.div`
+  position: relative;
 `;

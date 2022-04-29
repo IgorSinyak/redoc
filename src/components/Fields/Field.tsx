@@ -20,6 +20,7 @@ import { Schema, SchemaOptions } from '../Schema/Schema';
 export interface FieldProps extends SchemaOptions {
   className?: string;
   isLast?: boolean;
+  isFirst?: boolean;
   showExamples?: boolean;
 
   field: FieldModel;
@@ -46,7 +47,7 @@ export class Field extends React.Component<FieldProps> {
   };
 
   render() {
-    const { className, field, isLast, expandByDefault } = this.props;
+    const { className, field, isLast, isFirst, expandByDefault } = this.props;
     const { name, deprecated, required, kind } = field;
     const withSubSchema = !field.schema.isPrimitive && !field.schema.isCircular;
 
@@ -67,19 +68,21 @@ export class Field extends React.Component<FieldProps> {
           <span>{name}</span>
           <ShelfIcon direction={expanded ? 'down' : 'right'} />
         </button>
-        {required && <RequiredLabel> required </RequiredLabel>}
+        {required && <RequiredLabel> REQUIRED </RequiredLabel>}
       </ClickablePropertyNameCell>
     ) : (
       <PropertyNameCell className={deprecated ? 'deprecated' : undefined} kind={kind} title={name}>
         <PropertyBullet />
         <span>{name}</span>
-        {required && <RequiredLabel> required </RequiredLabel>}
+        {required && <RequiredLabel> REQUIRED </RequiredLabel>}
       </PropertyNameCell>
     );
 
+    const trClassName = `${isLast ? 'last ' : ''}${isFirst ? 'first ' : ''}${className}`;
+
     return (
       <>
-        <tr className={isLast ? 'last ' + className : className}>
+        <tr className={trClassName}>
           {paramName}
           <PropertyDetailsCell>
             <FieldDetails {...this.props} />
